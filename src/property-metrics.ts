@@ -54,9 +54,9 @@ export class PropertyMetrics<
         continue;
       }
 
-      const classDecl = classType.symbol.declarations![0];
+      const classDeclaration = classType.symbol.declarations![0];
 
-      if (propertyDeclaration.parent === classDecl) {
+      if (propertyDeclaration.parent === classDeclaration) {
         this.overridden.push(propertyDeclaration);
       } else {
         this.inherited.push(propertyDeclaration);
