@@ -6,7 +6,7 @@ import { ClassMetrics } from "./class-metrics";
 export class PropertyMetrics<
   T extends AttributeDeclaration | MethodDeclaration
 > {
-  private readonly arrtibutesCheckers = [
+  private readonly atrributesCheckers = [
     ts.isPropertyDeclaration,
     ts.isParameter,
     ts.isGetAccessorDeclaration,
@@ -65,7 +65,7 @@ export class PropertyMetrics<
   }
 
   length(): number {
-    return this.allProps().length + this.privateCount;
+    return this.allProps().length;
   }
 
   private isMethodOrAttributeDeclaration(
@@ -76,7 +76,7 @@ export class PropertyMetrics<
 
     if (propType === "methods") return !!ts.isMethodDeclaration(propDecl);
 
-    return this.arrtibutesCheckers.some((is) => is(propDecl));
+    return this.atrributesCheckers.some((is) => is(propDecl));
   }
 
   private isPrivate(decl: T): boolean {

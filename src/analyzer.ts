@@ -104,6 +104,7 @@ export class Analyzer {
     }
 
     const result: ClassMetrics = new ClassMetrics();
+
     result.className = className;
     result.classPath = classPath;
 
@@ -118,6 +119,7 @@ export class Analyzer {
 
     result.methods.process(parentClassMetrics, classType);
     result.attributes.process(parentClassMetrics, classType);
+
     this.classes.push(result);
     return result;
   }
